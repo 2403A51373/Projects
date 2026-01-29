@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediLink Hospital – Promo Slideshow</title>
+  <link rel="stylesheet" href="promo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🩺 MediLink Hospital</div>
+    <nav>
+      <a href="hospital-promo.html"> Home</a>
+      <a href="dept.html" class="active">Departments</a>
+      <a href="app.html">Appointments</a>
+      <a href="login.html">Login</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Slideshow Section -->
+  <section class="slideshow-container">
+    <div class="slide fade">
+      <img src="/images/hospital.png" alt="Hospital">
+      <div class="text">
+        <h1>Welcome to MediLink</h1>
+        <p>Your Health, Our Priority 💙</p>
+      </div>
+    </div>
+
+    <div class="slide fade">
+      <img src="/images/doctors.png" alt="Doctor">
+      <div class="text">
+        <h1>Expert Doctors</h1>
+        <p>Our specialists are here to take care of you 24/7.</p>
+      </div>
+    </div>
+
+    <div class="slide fade">
+      <img src="/images/tech.png" alt="Technology">
+      <div class="text">
+        <h1>Modern Technology</h1>
+        <p>Advanced facilities and digital medical records.</p>
+      </div>
+    </div>
+
+    <div class="slide fade">
+      <img src="/images/appoint.png" alt="Appointment">
+      <div class="text">
+        <h1>Online Appointments</h1>
+        <p>Book your consultation easily, anytime, anywhere.</p>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 MediLink Hospital | Smart Healthcare for Everyone</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      showSlides();
+    }
+  </script>
+  <section class="features">
+    <h2>✨ Key Features</h2>
+    <div class="feature-container">
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" alt="">
+        <h3>Patient Registration & Doctor Login</h3>
+        <p>Easy sign-up for patients and secure login for doctors to access dashboards.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="">
+        <h3>Online Appointment Booking</h3>
+        <p>Book or reschedule your appointments in just a few clicks.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="">
+        <h3>Upload Prescriptions & Reports</h3>
+        <p>Upload and manage medical documents securely and conveniently.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3305/3305673.png" alt="">
+        <h3>Admin Dashboard</h3>
+        <p>Admins can manage doctors, patients, and appointments with ease.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="">
+        <h3>Notifications & Reminders</h3>
+        <p>Get timely alerts for upcoming appointments and important updates.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+

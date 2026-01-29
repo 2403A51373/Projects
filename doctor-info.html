@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="promo.css">
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px #bbb;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background: #007bff;
+            color: #fff;
+        }
+        .navbar {
+            background: #2b8be6;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+         nav a.active {
+            color: #ffeb3b;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+   <header class="navbar">
+    <div class="logo">🩺 MediLink Hospital</div>
+    <nav>
+      <a href="hospital-promo.html">🏠 Home</a>
+      <a href="dept.html">Departments</a>
+      <a href="app.html">Appointments</a>
+      <a href="login.html">Login</a>
+      <a href="doctor-info.html"  class="active" >Doctor Info</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+</header>
+    <h2 id="docName">Doctor Dashboard</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Contact</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="dataBody"></tbody>
+    </table>
+
+    <script>
+        const data = JSON.parse(localStorage.getItem("doctorData"));
+
+        document.getElementById("docName").innerText =
+            "Welcome " + data.doctor;
+
+        let tbody = "";
+        data.appointments.forEach(a => {
+            tbody += `
+                <tr>
+                    <td>${a.patient}</td>
+                    <td>${a.contact}</td>
+                    <td>${a.date}</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("dataBody").innerHTML = tbody;
+    </script>
+
+</body>
+</html>

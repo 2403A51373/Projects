@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediLink | Contact</title>
+  <link rel="stylesheet" href="promo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f6faff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: #2b8be6;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffeb3b;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      color: #1d4ed8;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .info div {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      background: #fff;
+      color: #555;
+      padding: 15px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      nav a { margin-left: 10px; font-size: 14px; }
+      .container { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🩺 MediLink Hospital</div>
+    <nav>
+      <a href="hospital-promo.html"> Home</a>
+      <a href="dept.html">Departments</a>
+      <a href="app.html">Appointments</a>
+      <a href="login.html">Login</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <header>
+    <h1>📞 Contact Us</h1>
+    <p>We’re here to help! Reach out anytime.</p>
+  </header>
+
+  <div class="container">
+    <div class="card info">
+      <h2>Our Info</h2>
+      <div>📧 contact@medilink.com</div>
+      <div>📞 +91 786978690</div>
+      <div>🏢 123 MediLink St, Health City</div>
+    </div>
+  </div>
+
+  <footer>© 2025 MediLink | Smart Healthcare 💙</footer>
+
+</body>
+</html>

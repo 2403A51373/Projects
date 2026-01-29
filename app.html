@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediLink Hospital | Book Appointment</title>
+  <link rel="stylesheet" href="promo.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f4f7ff;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #2b8be6;
+      color: white;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: #ffeb3b;
+    }
+
+    /* PAGE HEADER */
+    .top {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .top h1 {
+      color: #1d4ed8;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* CARD */
+    .card {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .card img {
+      width: 260px;
+      height: auto;
+      align-self: center;
+    }
+
+    form {
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cfd8e3;
+      background: #f8fbff;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background: #2b8be6;
+      color: white;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .success-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f8e6;
+      border-left: 6px solid #22c55e;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background: #fff;
+      margin-top: 40px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">🩺 MediLink Hospital</div>
+    <div>
+      <a href="hospital-promo.html">Home</a>
+      <a href="dept.html">Departments</a>
+      <a href="app.html">Appointment</a>
+      <a href="login.html">Login</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="top">
+    <h1>📅 Book Appointment</h1>
+    <p>Fill details to schedule your appointment.</p>
+  </div>
+
+  <!-- MAIN CARD -->
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
+
+    <form id="appointForm">
+      <input type="text" name="name" placeholder="Patient Name" required>
+      <input type="text" name="contact" placeholder="Contact Number" required>
+      <input type="date" name="date" required>
+
+      <select name="department" required>
+        <option value="">Select Department</option>
+        <option>Cardiology</option>
+        <option>Dermatology</option>
+        <option>Dentistry</option>
+        <option>Pediatrics</option>
+        <option>Neurology</option>
+        <option>Orthopedics</option>
+      </select>
+
+      <select name="doctor" required>
+        <option value="">Select Doctor</option>
+        <option value="1">Dr. DINESH – Cardiologist</option>
+        <option value="2">Dr. ZOYA – Dermatologist</option>
+        <option value="3">Dr. NAVYA PUJARI – Dentist</option>
+        <option value="4">Dr. SHASHI – Pediatrician</option>
+        <option value="5">Dr. NAVYA KASTURI – Neurologist</option>
+        <option value="6">Dr. Kumar – Orthopedic</option>
+      </select>
+
+      <button type="submit">Book Appointment</button>
+
+      <div id="success" class="success-box"></div>
+    </form>
+  </div>
+
+  <footer>© 2025 MediLink Hospital | Smart Appointment System 💙</footer>
+
+  <script>
+    const form = document.getElementById("appointForm");
+    const successBox = document.getElementById("success");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: form.name.value,
+        contact: form.contact.value,
+        date: form.date.value,
+        department: form.department.value,
+        doctor_id: form.doctor.value
+      };
+
+      const response = await fetch("/api/appointment/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      successBox.style.display = "block";
+      successBox.innerHTML = `
+        <strong>✔ Appointment Confirmed!</strong><br>
+        Date: ${formData.date}<br>
+        Doctor: ${form.doctor.options[form.doctor.selectedIndex].text}
+      `;
+    });
+  </script>
+
+</body>
+</html>

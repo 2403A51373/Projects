@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="promo.css">
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #1d4ed8;
+        }
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px #bbb;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background: #007bff;
+            color: #fff;
+        }
+
+        /* Navbar copy from doctor dashboard */
+        .navbar {
+            background: #2b8be6;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ffeb3b;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">🩺 MediLink Hospital</div>
+    <nav>
+        <a href="hospital-promo.html">🏠 Home</a>
+        <a href="dept.html">Departments</a>
+        <a href="app.html">Appointments</a>
+        <a href="login.html">Login</a>
+        <a href="admin-info.html" class="active">Admin</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<h2 id="adminName">Admin Dashboard</h2>
+
+<div class="container">
+    <h3 style="text-align:center; color:#1d4ed8;">All Appointments</h3>
+
+    <table id="appTable">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Contact</th>
+                <th>Doctor</th>
+                <th>Department</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="dataBody"></tbody>
+    </table>
+</div>
+
+<script>
+    const data = JSON.parse(localStorage.getItem("adminData"));
+
+    document.getElementById("adminName").innerText =
+        "Welcome Admin " + data.admin;
+
+    let rows = "";
+    data.appointments.forEach(a => {
+        rows += `
+            <tr>
+                <td>${a.patient_name}</td>
+                <td>${a.contact}</td>
+                <td>${a.doctor}</td>
+                <td>${a.department}</td>
+                <td>${a.date}</td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("dataBody").innerHTML = rows;
+</script>
+
+</body>
+</html>

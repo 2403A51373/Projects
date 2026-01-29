@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Patient Dashboard</title>
+<link rel="stylesheet" href="promo.css">
+
+<style>
+body { font-family: Arial; background: #f4f8ff; }
+.table-box { background: white; padding: 20px; border-radius: 10px; width: 80%; margin: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; border: 1px solid #ccc; }
+th { background: royalblue; color: white; }
+
+</style>
+</head>
+
+<body>
+<header class="navbar">
+    <div class="logo">🩺 MediLink Hospital</div>
+    <nav>
+      <a href="hospital-promo.html">🏠 Home</a>
+      <a href="dept.html">Departments</a>
+      <a href="app.html">Appointments</a>
+      <a href="login.html">Login</a>
+      <a href="patient-info.html" class="active">Patient Info</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+
+
+<h2 id="patientName"></h2>
+
+<div class="table-box">
+    <table>
+        <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Department</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="patientRows"></tbody>
+    </table>
+</div>
+
+<script>
+const data = JSON.parse(localStorage.getItem("patientData"));
+
+document.getElementById("patientName").innerHTML =
+    "Patient: " + data.patient;
+
+const body = document.getElementById("patientRows");
+
+data.appointments.forEach(a => {
+    body.innerHTML += `
+        <tr>
+            <td>${a.doctor}</td>
+            <td>${a.department}</td>
+            <td>${a.date}</td>
+        </tr>`;
+});
+</script>
+
+</body>
+</html>
