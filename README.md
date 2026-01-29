@@ -1,6 +1,6 @@
 # Hospital Management System (Web Application)
 
-## 📌 Project Overview
+## Project Overview
 The Hospital Management System (HMS) is a web-based application developed as a
 university project. It is designed to simplify and automate hospital operations
 such as managing patient details, doctor information, appointments, and basic
@@ -11,7 +11,7 @@ and a Node.js backend.
 
 ---
 
-## 🚀 Features
+## Features
 - Admin login
 - Patient information management
 - Doctor information management
@@ -34,7 +34,7 @@ and a Node.js backend.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 Hospital-Management-System/
 │
