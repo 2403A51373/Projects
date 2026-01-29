@@ -22,7 +22,7 @@ and a Node.js backend.
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 ### Frontend
 - HTML
 - CSS
