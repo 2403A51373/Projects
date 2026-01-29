@@ -37,18 +37,17 @@ and a Node.js backend.
 ## Project Structure
 
 Hospital-Management-System/
-│
-├── public/
-│ ├── images/
-│ ├── login.html
-│ ├── app.html
-│ ├── patient-info.html
-│ ├── doctor-info.html
-│ └── admin-info.html
-│
-├── server.js
-├── package.json
-└── package-lock.json
+public/
+ images/
+   login.html
+   app.html
+   patient-info.html
+   doctor-info.html
+   admin-info.html
+ 
+   server.js
+   package.json
+   package-lock.json
 
 
 
