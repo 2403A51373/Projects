@@ -1,2 +1,2 @@
 # Projects
-Consists of all the projects i have worked on 
+Consists of all the project I have worked on during my coruse learning , wtmp
